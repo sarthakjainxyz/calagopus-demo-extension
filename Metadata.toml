@@ -1,0 +1,3 @@
+package_name = "xyz.stellarstudios.demo"
+name = "Demo Environment"
+panel_version = ">=1.0.0"
