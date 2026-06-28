@@ -1,4 +1,4 @@
-import { faCog, faSave, faServer } from '@fortawesome/free-solid-svg-icons';
+import { faCog, faRefresh, faSave, faServer } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Stack } from '@mantine/core';
 import { useForm } from '@mantine/form';
@@ -15,6 +15,7 @@ import { permissionMapSchema } from '@/lib/schemas/generic.ts';
 import { useToast } from '@/providers/ToastProvider.tsx';
 import { useTranslations } from '@/providers/TranslationProvider.tsx';
 import getSettings from './api/getSettings.ts';
+import syncSubusers from './api/syncSubusers.ts';
 import updateSettings from './api/updateSettings.ts';
 import { adminExtensionSettingsSchema } from './lib/schema.ts';
 
@@ -23,6 +24,7 @@ export default function DemoConfigurationPage() {
   const { addToast } = useToast();
 
   const [loading, setLoading] = useState(false);
+  const [syncing, setSyncing] = useState(false);
   const [permissionsMap, setPermissionsMap] = useState<z.infer<typeof permissionMapSchema>>({});
 
   const form = useForm<z.infer<typeof adminExtensionSettingsSchema>>({
@@ -53,6 +55,14 @@ export default function DemoConfigurationPage() {
       .finally(() => setLoading(false));
   };
 
+  const doSync = () => {
+    setSyncing(true);
+    syncSubusers()
+      .then(({ synced }) => addToast(`Synced ${synced} subuser entries`, 'success'))
+      .catch((err) => addToast(httpErrorToHuman(err), 'error'))
+      .finally(() => setSyncing(false));
+  };
+
   return (
     <div className='md:columns-2 gap-4 space-y-4'>
       <TitleCard title='Server Access' icon={<FontAwesomeIcon icon={faServer} />} className='w-full'>
@@ -67,6 +77,26 @@ export default function DemoConfigurationPage() {
 
           <Button loading={loading} onClick={doSave} className='w-fit!' leftSection={<FontAwesomeIcon icon={faSave} />}>
             {t('common.button.save', {})}
+          </Button>
+        </Stack>
+      </TitleCard>
+
+      <TitleCard title='Sync Existing Users' icon={<FontAwesomeIcon icon={faRefresh} />} className='w-full'>
+        <Stack>
+          <p className='text-neutral-400 text-sm'>
+            Syncs the current server list and permissions to all existing users. Users will be added as
+            subusers on all configured servers with the selected permissions. Users on servers that are no longer
+            configured will be removed. Permissions for already-synced users will be overwritten with the current
+            selection.
+          </p>
+          <p className='text-red-400 text-sm font-medium'>This action cannot be reverted.</p>
+          <Button
+            loading={syncing}
+            onClick={doSync}
+            className='w-fit!'
+            leftSection={<FontAwesomeIcon icon={faRefresh} />}
+          >
+            Sync Existing Users
           </Button>
         </Stack>
       </TitleCard>

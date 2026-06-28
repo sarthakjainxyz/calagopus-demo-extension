@@ -2,7 +2,7 @@
 name = "xyz_stellarstudios_demo"
 description = "This extension allows you to give server access to newly created accounts for demo panel purposes."
 authors = ["Sarthak"]
-version = "1.0.0"
+version = "1.1.0"
 edition = { workspace = true }
 
 [dependencies]
