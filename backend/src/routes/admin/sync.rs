@@ -1,10 +1,10 @@
 mod post {
+    use serde::Serialize;
     use shared::{
         GetState,
         models::user::GetPermissionManager,
         response::{ApiResponse, ApiResponseResult},
     };
-    use serde::Serialize;
     use sqlx::types::Uuid;
     use utoipa::ToSchema;
 
@@ -20,8 +20,7 @@ mod post {
         permissions.has_admin_permission("extensions.configure")?;
 
         let settings = state.settings.get().await?;
-        let ext: &crate::settings::ExtensionSettingsData =
-            settings.find_extension_settings()?;
+        let ext: &crate::settings::ExtensionSettingsData = settings.find_extension_settings()?;
 
         let server_uuids: Vec<Uuid> = ext
             .server_uuids

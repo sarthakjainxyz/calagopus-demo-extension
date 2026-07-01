@@ -84,10 +84,9 @@ export default function DemoConfigurationPage() {
       <TitleCard title='Sync Existing Users' icon={<FontAwesomeIcon icon={faRefresh} />} className='w-full'>
         <Stack>
           <p className='text-neutral-400 text-sm'>
-            Syncs the current server list and permissions to all existing users. Users will be added as
-            subusers on all configured servers with the selected permissions. Users on servers that are no longer
-            configured will be removed. Permissions for already-synced users will be overwritten with the current
-            selection.
+            Syncs the current server list and permissions to all existing users. Users will be added as subusers on all
+            configured servers with the selected permissions. Users on servers that are no longer configured will be
+            removed. Permissions for already-synced users will be overwritten with the current selection.
           </p>
           <p className='text-red-400 text-sm font-medium'>This action cannot be reverted.</p>
           <Button
