@@ -1,13 +1,17 @@
 use async_trait::async_trait;
 use shared::{
     State,
-    extensions::{Extension, ExtensionRouteBuilder, settings::ExtensionSettingsDeserializer},
+    extensions::{
+        Extension, ExtensionRouteBuilder, ExtensionUpdateInfo,
+        settings::ExtensionSettingsDeserializer,
+    },
 };
 use std::sync::Arc;
 
 mod events;
 mod routes;
 mod settings;
+mod update;
 
 #[derive(Default)]
 pub struct ExtensionStruct;
@@ -33,5 +37,13 @@ impl Extension for ExtensionStruct {
 
     async fn settings_deserializer(&self, _state: State) -> ExtensionSettingsDeserializer {
         Arc::new(settings::ExtensionSettingsDataDeserializer)
+    }
+
+    async fn check_for_updates(
+        &self,
+        state: State,
+        current_version: &semver::Version,
+    ) -> Result<Option<ExtensionUpdateInfo>, anyhow::Error> {
+        update::check_for_updates(&state, current_version).await
     }
 }

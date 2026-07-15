@@ -55,6 +55,5 @@ pub async fn register() {
                 Ok(())
             })
         },
-    )
-    .await;
+    );
 }

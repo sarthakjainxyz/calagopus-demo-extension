@@ -2,7 +2,7 @@
 name = "xyz_stellarstudios_demo"
 description = "This extension allows you to give server access to newly created accounts for demo panel purposes."
 authors = ["Sarthak"]
-version = "1.1.0"
+version = "1.1.1"
 edition = { workspace = true }
 
 [dependencies]
@@ -19,3 +19,4 @@ compact_str = { workspace = true }
 garde = { workspace = true }
 sqlx = { workspace = true }
 tokio = { workspace = true }
+semver = { workspace = true }
