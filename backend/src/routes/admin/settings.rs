@@ -42,15 +42,23 @@ mod put {
         models::{admin_activity::GetAdminActivityLogger, user::GetPermissionManager},
         response::{ApiResponse, ApiResponseResult},
     };
+    use std::collections::HashMap;
     use utoipa::ToSchema;
 
     #[derive(ToSchema, Validate, Deserialize)]
     pub struct Payload {
         #[garde(skip)]
-        server_uuids: Option<Vec<compact_str::CompactString>>,
-
+        alert_enabled: bool,
+        #[garde(length(chars, max = 32))]
+        alert_style: compact_str::CompactString,
+        #[garde(length(chars, max = 255))]
+        alert_title: Option<compact_str::CompactString>,
         #[garde(skip)]
-        permissions: Option<Vec<compact_str::CompactString>>,
+        alert_title_translations: HashMap<compact_str::CompactString, compact_str::CompactString>,
+        #[garde(length(chars, max = 2048))]
+        alert_message: Option<compact_str::CompactString>,
+        #[garde(skip)]
+        alert_message_translations: HashMap<compact_str::CompactString, compact_str::CompactString>,
     }
 
     #[derive(ToSchema, Serialize)]
@@ -77,13 +85,12 @@ mod put {
         let extension_settings =
             settings.find_mut_extension_settings::<crate::settings::ExtensionSettingsData>()?;
 
-        if let Some(server_uuids) = data.server_uuids {
-            extension_settings.server_uuids = server_uuids;
-        }
-
-        if let Some(perms) = data.permissions {
-            extension_settings.permissions = perms;
-        }
+        extension_settings.alert_enabled = data.alert_enabled;
+        extension_settings.alert_style = data.alert_style;
+        extension_settings.alert_title = data.alert_title;
+        extension_settings.alert_title_translations = data.alert_title_translations;
+        extension_settings.alert_message = data.alert_message;
+        extension_settings.alert_message_translations = data.alert_message_translations;
 
         let extension_settings_json = serde_json::to_value(&extension_settings)?;
         settings.save().await?;

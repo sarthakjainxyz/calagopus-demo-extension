@@ -1,0 +1,101 @@
+{
+  "items": {},
+  "translations": {
+    "common": {
+      "button": {
+        "link": "Lier",
+        "back": "Retour aux configurations démo",
+        "linkBackup": "Lier une sauvegarde existante",
+        "takeBackup": "Créer une nouvelle sauvegarde",
+        "retakeBackup": "Recréer la sauvegarde",
+        "unlinkBackup": "Dissocier la sauvegarde"
+      },
+      "toast": {
+        "created": "Configuration démo créée et permissions synchronisées pour tous les utilisateurs.",
+        "updated": "Configuration enregistrée et permissions synchronisées pour tous les utilisateurs.",
+        "deleted": "Configuration démo supprimée et sous-utilisateurs démo retirés.",
+        "duplicated": "Configuration démo dupliquée avec succès.",
+        "backupTaken": "Création de la sauvegarde initiée. Elle sera détachée une fois terminée.",
+        "backupLinked": "Sauvegarde liée avec succès.",
+        "backupUnlinked": "Sauvegarde dissociée de la configuration démo.",
+        "restoreStarted": "Restauration de la sauvegarde initiée."
+      }
+    },
+    "pages": {
+      "admin": {
+        "configuration": {
+          "information": {
+            "title": "Information",
+            "description": "Merci d'avoir installé l'extension Environnement Démo ! Si vous avez des questions, des retours ou des problèmes, n'hésitez pas à nous contacter.",
+            "version": "Vous utilisez actuellement la version {current} (la plus récente est {latest}).",
+            "button": {
+              "joinDiscord": "Rejoindre notre Discord",
+              "github": "GitHub"
+            }
+          },
+          "alertSettings": {
+            "title": "Alerte d'authentification",
+            "enabled": "Activer l'alerte d'authentification",
+            "saved": "Paramètres enregistrés avec succès."
+          },
+          "configurations": {
+            "title": "Configurations du serveur démo",
+            "badge": {
+              "missingBackup": "Sauvegarde manquante",
+              "noBackup": "Aucune sauvegarde"
+            },
+            "table": {
+              "permissions": "Permissions",
+              "restoreInterval": "Intervalle de restauration",
+              "lastRestored": "Dernière restauration"
+            }
+          },
+          "form": {
+            "createTitle": "Créer une configuration démo",
+            "basicInfo": "Informations de base",
+            "serverDetails": "Serveur démo",
+            "subuserPermissions": "Permissions du sous-utilisateur",
+            "subuserPermissionsDesc": "Sélectionnez les permissions accordées aux nouveaux comptes et aux comptes existants sur ce serveur. L'enregistrement synchronisera automatiquement ces permissions pour tous les utilisateurs !",
+            "serverPlaceholder": "Sélectionner un serveur",
+            "deleteModalTitle": "Supprimer la configuration démo",
+            "deleteModalDesc": "Êtes-vous sûr de vouloir supprimer cette configuration démo ? Toutes les permissions accordées aux sous-utilisateurs démo sur ce serveur seront supprimées."
+          },
+          "backups": {
+            "title": "Sauvegarde et restaurations automatisées",
+            "automatedRestoresDesc": "Restaure automatiquement le serveur vers la sauvegarde sélectionnée à intervalles réguliers.",
+            "enableAutomatedRestores": "Activer les restaurations automatisées",
+            "restoreInterval": "Intervalle de restauration (secondes)",
+            "restoreIntervalDesc": "Le serveur sera automatiquement restauré depuis la sauvegarde démo toutes les {interval}.",
+            "backup": "Sauvegarde",
+            "linkedBadge": "Liée",
+            "pendingBadge": "Préparation de la sauvegarde...",
+            "noBackupBadge": "Aucune sauvegarde",
+            "noBackup": "Aucune sauvegarde liée pour le moment. Liez une sauvegarde détachée existante ou créez-en une nouvelle.",
+            "createFirstNotice": "Vous pourrez lier ou créer une sauvegarde démo après avoir enregistré cette configuration.",
+            "retakeConfirmTitle": "Recréer la sauvegarde",
+            "retakeConfirm": "Une sauvegarde est déjà liée. La création d'une nouvelle sauvegarde détachera l'ancienne de cette configuration et liera la nouvelle une fois terminée. Voulez-vous continuer ?",
+            "unlinkConfirmTitle": "Dissocier la sauvegarde",
+            "unlinkConfirm": "Êtes-vous sûr de vouloir dissocier la sauvegarde de cette configuration ? La sauvegarde en elle-même ne sera pas supprimée.",
+            "restoreConfirmTitle": "Restaurer la sauvegarde maintenant",
+            "restoreConfirm": "Êtes-vous sûr de vouloir restaurer le serveur depuis cette sauvegarde dès maintenant ? Le contenu actuel du serveur sera écrasé."
+          },
+          "modals": {
+            "duplicate": {
+              "title": "Dupliquer la configuration démo",
+              "desc": "Cela créera une nouvelle configuration démo avec les mêmes permissions et réglages de restauration que {name}.",
+              "name": "Nouveau nom de configuration",
+              "targetServer": "Serveur cible"
+            },
+            "link": {
+              "title": "Lier une sauvegarde existante",
+              "desc": "Sélectionnez une sauvegarde détachée à associer à {name}. Cette sauvegarde ne doit être rattachée à aucun serveur.",
+              "empty": "Aucune sauvegarde détachée trouvée. Créez d'abord une sauvegarde sur un serveur ou prenez-en une nouvelle.",
+              "selectLabel": "Sauvegarde existante",
+              "selectPlaceholder": "Sélectionnez une sauvegarde existante..."
+            }
+          }
+        }
+      }
+    }
+  }
+}

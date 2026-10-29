@@ -12,19 +12,15 @@ pub async fn check_for_updates(
 ) -> Result<Option<ExtensionUpdateInfo>, anyhow::Error> {
     let update_data: UpdateResponse = state
         .cache
-        .cached(
-            "xyz.stellarstudios.demo::latest-version",
-            3600,
-            || async {
-                state
-                    .client
-                    .get("https://products.stellarstudios.xyz/api/calagopus/demo")
-                    .send()
-                    .await?
-                    .json::<UpdateResponse>()
-                    .await
-            },
-        )
+        .cached("xyz.stellarstudios.demo::latest-version", 3600, || async {
+            state
+                .client
+                .get("https://products.stellarstudios.xyz/api/calagopus/demo")
+                .send()
+                .await?
+                .json::<UpdateResponse>()
+                .await
+        })
         .await?;
 
     let latest = semver::Version::parse(&update_data.version)?;

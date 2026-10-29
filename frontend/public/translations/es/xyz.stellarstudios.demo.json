@@ -1,0 +1,101 @@
+{
+  "items": {},
+  "translations": {
+    "common": {
+      "button": {
+        "link": "Vincular",
+        "back": "Volver a configuraciones demo",
+        "linkBackup": "Vincular copia de seguridad existente",
+        "takeBackup": "Crear nueva copia de seguridad",
+        "retakeBackup": "Volver a crear copia de seguridad",
+        "unlinkBackup": "Desvincular copia de seguridad"
+      },
+      "toast": {
+        "created": "Configuración demo creada y permisos sincronizados para todos los usuarios.",
+        "updated": "Configuración guardada y permisos sincronizados para todos los usuarios.",
+        "deleted": "Configuración demo eliminada y subusuarios demo removidos.",
+        "duplicated": "Configuración demo duplicada exitosamente.",
+        "backupTaken": "Creación de copia de seguridad iniciada. Se desvinculará al completarse.",
+        "backupLinked": "Copia de seguridad vinculada exitosamente.",
+        "backupUnlinked": "Copia de seguridad desvinculada de la configuración demo.",
+        "restoreStarted": "Restauración de copia de seguridad iniciada."
+      }
+    },
+    "pages": {
+      "admin": {
+        "configuration": {
+          "information": {
+            "title": "Información",
+            "description": "¡Gracias por instalar la extensión Entorno Demo! Si tienes alguna pregunta, comentario o problema, no dudes en contactarnos.",
+            "version": "Actualmente estás usando la versión {current} (la más reciente es {latest}).",
+            "button": {
+              "joinDiscord": "Únete a nuestro Discord",
+              "github": "GitHub"
+            }
+          },
+          "alertSettings": {
+            "title": "Alerta de autenticación",
+            "enabled": "Habilitar alerta de autenticación",
+            "saved": "Configuración guardada exitosamente."
+          },
+          "configurations": {
+            "title": "Configuraciones de servidor demo",
+            "badge": {
+              "missingBackup": "Falta copia de seguridad",
+              "noBackup": "Sin copia de seguridad"
+            },
+            "table": {
+              "permissions": "Permisos",
+              "restoreInterval": "Intervalo de restauración",
+              "lastRestored": "Última restauración"
+            }
+          },
+          "form": {
+            "createTitle": "Crear configuración demo",
+            "basicInfo": "Información básica",
+            "serverDetails": "Servidor demo",
+            "subuserPermissions": "Permisos de subusuario",
+            "subuserPermissionsDesc": "Selecciona los permisos otorgados a las cuentas nuevas y existentes en este servidor. ¡Al guardar, se sincronizarán automáticamente estos permisos con todos los usuarios!",
+            "serverPlaceholder": "Seleccionar servidor",
+            "deleteModalTitle": "Eliminar configuración demo",
+            "deleteModalDesc": "¿Estás seguro de que deseas eliminar esta configuración demo? Se eliminarán todos los permisos de subusuario demo otorgados en este servidor."
+          },
+          "backups": {
+            "title": "Copia de seguridad y restauraciones automáticas",
+            "automatedRestoresDesc": "Restaura automáticamente el servidor a la copia de seguridad seleccionada a intervalos regulares.",
+            "enableAutomatedRestores": "Habilitar restauraciones automáticas",
+            "restoreInterval": "Intervalo de restauración (segundos)",
+            "restoreIntervalDesc": "El servidor se restaurará automáticamente desde la copia de seguridad demo cada {interval}.",
+            "backup": "Copia de seguridad",
+            "linkedBadge": "Vinculada",
+            "pendingBadge": "Preparando copia de seguridad...",
+            "noBackupBadge": "Sin copia de seguridad",
+            "noBackup": "Aún no hay copia de seguridad vinculada. Vincula una copia de seguridad desvinculada existente o crea una nueva.",
+            "createFirstNotice": "Podrás vincular o crear una copia de seguridad demo después de guardar esta configuración.",
+            "retakeConfirmTitle": "Volver a crear copia de seguridad",
+            "retakeConfirm": "Ya hay una copia de seguridad vinculada. Crear una nueva desvinculará la anterior de esta configuración y vinculará la recién creada una vez completada. ¿Deseas continuar?",
+            "unlinkConfirmTitle": "Desvincular copia de seguridad",
+            "unlinkConfirm": "¿Estás seguro de que deseas desvincular la copia de seguridad de esta configuración? La copia de seguridad no se eliminará.",
+            "restoreConfirmTitle": "Restaurar copia de seguridad ahora",
+            "restoreConfirm": "¿Estás seguro de que deseas restaurar el servidor desde esta copia de seguridad ahora mismo? El contenido actual del servidor se sobrescribirá."
+          },
+          "modals": {
+            "duplicate": {
+              "title": "Duplicar configuración demo",
+              "desc": "Esto creará una nueva configuración demo con los mismos permisos y ajustes de restauración que {name}.",
+              "name": "Nuevo nombre de configuración",
+              "targetServer": "Servidor destino"
+            },
+            "link": {
+              "title": "Vincular copia de seguridad existente",
+              "desc": "Selecciona una copia de seguridad desvinculada para adjuntarla a {name}. Esta copia de seguridad no debe estar vinculada a ningún servidor.",
+              "empty": "No se encontraron copias de seguridad desvinculadas. Crea una copia de seguridad en un servidor primero o crea una nueva.",
+              "selectLabel": "Copia de seguridad existente",
+              "selectPlaceholder": "Selecciona una copia de seguridad existente..."
+            }
+          }
+        }
+      }
+    }
+  }
+}

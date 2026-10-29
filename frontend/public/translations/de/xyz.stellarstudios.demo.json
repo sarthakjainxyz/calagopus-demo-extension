@@ -1,0 +1,101 @@
+{
+  "items": {},
+  "translations": {
+    "common": {
+      "button": {
+        "link": "Verknüpfen",
+        "back": "Zurück zu den Demo-Konfigurationen",
+        "linkBackup": "Vorhandenes Backup verknüpfen",
+        "takeBackup": "Neues Backup erstellen",
+        "retakeBackup": "Backup erneut erstellen",
+        "unlinkBackup": "Backup trennen"
+      },
+      "toast": {
+        "created": "Demo-Konfiguration erstellt und Berechtigungen synchronisiert.",
+        "updated": "Konfiguration gespeichert und Berechtigungen synchronisiert.",
+        "deleted": "Demo-Konfiguration gelöscht und Demo-Subuser entfernt.",
+        "duplicated": "Demo-Konfiguration erfolgreich dupliziert.",
+        "backupTaken": "Backup-Erstellung initiiert. Es wird nach Fertigstellung abgetrennt.",
+        "backupLinked": "Backup erfolgreich verknüpft.",
+        "backupUnlinked": "Backup von der Demo-Konfiguration getrennt.",
+        "restoreStarted": "Backup-Wiederherstellung initiiert."
+      }
+    },
+    "pages": {
+      "admin": {
+        "configuration": {
+          "information": {
+            "title": "Information",
+            "description": "Vielen Dank für die Installation der Demo-Umgebungs-Erweiterung! Wenn Sie Fragen, Feedback oder Probleme haben, können Sie sich gerne an uns wenden.",
+            "version": "Sie verwenden derzeit Version {current} (neueste ist {latest}).",
+            "button": {
+              "joinDiscord": "Unserem Discord beitreten",
+              "github": "GitHub"
+            }
+          },
+          "alertSettings": {
+            "title": "Authentifizierungs-Hinweis",
+            "enabled": "Authentifizierungs-Hinweis aktivieren",
+            "saved": "Einstellungen erfolgreich gespeichert."
+          },
+          "configurations": {
+            "title": "Demo-Server-Konfigurationen",
+            "badge": {
+              "missingBackup": "Fehlendes Backup",
+              "noBackup": "Kein Backup"
+            },
+            "table": {
+              "permissions": "Berechtigungen",
+              "restoreInterval": "Wiederherstellungsintervall",
+              "lastRestored": "Zuletzt wiederhergestellt"
+            }
+          },
+          "form": {
+            "createTitle": "Demo-Konfiguration erstellen",
+            "basicInfo": "Grundlegende Informationen",
+            "serverDetails": "Demo-Server",
+            "subuserPermissions": "Subuser-Berechtigungen",
+            "subuserPermissionsDesc": "Wählen Sie die Berechtigungen aus, die neu erstellten Konten und bestehenden Konten auf diesem Server gewährt werden. Das Speichern synchronisiert diese Berechtigungen automatisch für alle Benutzer!",
+            "serverPlaceholder": "Server auswählen",
+            "deleteModalTitle": "Demo-Konfiguration löschen",
+            "deleteModalDesc": "Möchten Sie diese Demo-Konfiguration wirklich löschen? Alle zugewiesenen Demo-Subuser-Berechtigungen auf diesem Server werden entfernt."
+          },
+          "backups": {
+            "title": "Backup & Automatische Wiederherstellungen",
+            "automatedRestoresDesc": "Stellt den Server in regelmäßigen Abständen automatisch aus dem ausgewählten Backup wieder her.",
+            "enableAutomatedRestores": "Automatische Wiederherstellungen aktivieren",
+            "restoreInterval": "Wiederherstellungsintervall (Sekunden)",
+            "restoreIntervalDesc": "Der Server wird alle {interval} automatisch aus dem Demo-Backup wiederhergestellt.",
+            "backup": "Backup",
+            "linkedBadge": "Verknüpft",
+            "pendingBadge": "Backup wird vorbereitet...",
+            "noBackupBadge": "Kein Backup",
+            "noBackup": "Noch kein Backup verknüpft. Verknüpfen Sie ein bestehendes abgetrenntes Backup oder erstellen Sie ein neues.",
+            "createFirstNotice": "Sie können nach dem Speichern dieser Konfiguration ein Demo-Backup verknüpfen oder erstellen.",
+            "retakeConfirmTitle": "Backup erneut erstellen",
+            "retakeConfirm": "Ein Backup ist bereits verknüpft. Durch das Erstellen eines neuen Backups wird das bisherige von dieser Konfiguration getrennt und das neue nach Abschluss verknüpft. Möchten Sie fortfahren?",
+            "unlinkConfirmTitle": "Backup trennen",
+            "unlinkConfirm": "Möchten Sie das Backup wirklich von dieser Konfiguration trennen? Das Backup selbst wird nicht gelöscht.",
+            "restoreConfirmTitle": "Backup jetzt wiederherstellen",
+            "restoreConfirm": "Möchten Sie den Server jetzt aus diesem Backup wiederherstellen? Aktuelle Daten auf dem Server werden überschrieben."
+          },
+          "modals": {
+            "duplicate": {
+              "title": "Demo-Konfiguration duplizieren",
+              "desc": "Dies erstellt eine neue Demo-Konfiguration mit denselben Berechtigungen und Wiederherstellungseinstellungen wie {name}.",
+              "name": "Neuer Konfigurationsname",
+              "targetServer": "Ziel-Server"
+            },
+            "link": {
+              "title": "Vorhandenes Backup verknüpfen",
+              "desc": "Wählen Sie ein abgetrenntes Backup aus, das an {name} angehängt werden soll. Dieses Backup darf keinem Server zugeordnet sein.",
+              "empty": "Keine abgetrennten Backups gefunden. Erstellen Sie zuerst ein Backup auf einem Server oder nehmen Sie ein neues auf.",
+              "selectLabel": "Vorhandenes Backup",
+              "selectPlaceholder": "Wählen Sie ein vorhandenes Backup aus..."
+            }
+          }
+        }
+      }
+    }
+  }
+}
