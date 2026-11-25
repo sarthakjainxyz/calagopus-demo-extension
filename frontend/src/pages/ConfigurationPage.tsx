@@ -1,7 +1,6 @@
 import { faDiscord, faGithub } from '@fortawesome/free-brands-svg-icons';
 import { faBell, faInfoCircle, faPlus, faSave, faSearch } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Title } from '@mantine/core';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router';
 import { httpErrorToHuman } from '@/api/axios.ts';
@@ -15,6 +14,7 @@ import Switch from '@/elements/input/Switch.tsx';
 import TextInput from '@/elements/input/TextInput.tsx';
 import Group from '@/elements/layout/Group.tsx';
 import Stack from '@/elements/layout/Stack.tsx';
+import Title from '@/elements/typography/Title.tsx';
 import { announcementTypeLabelMapping, mappingToSelectData } from '@/lib/enums.ts';
 import { useSearchablePaginatedTable } from '@/plugins/resource/useSearchablePaginatedTable.ts';
 import { useToast } from '@/providers/ToastProvider.tsx';

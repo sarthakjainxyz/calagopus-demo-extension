@@ -1,8 +1,8 @@
-import { Select } from '@mantine/core';
 import { useEffect, useState } from 'react';
 import { httpErrorToHuman } from '@/api/axios.ts';
 import Button from '@/elements/buttons/Button.tsx';
 import Spinner from '@/elements/feedback/Spinner.tsx';
+import Select from '@/elements/input/Select.tsx';
 import Stack from '@/elements/layout/Stack.tsx';
 import { Modal, ModalFooter } from '@/elements/modals/Modal.tsx';
 import Text from '@/elements/typography/Text.tsx';
