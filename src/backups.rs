@@ -236,11 +236,7 @@ pub async fn has_server_activity_since_restore(
     }
 
     let elapsed = Utc::now().naive_utc() - activity.created;
-    if elapsed < chrono::Duration::seconds(interval_seconds) {
-        return Ok(false);
-    }
-
-    Ok(true)
+    Ok(elapsed >= chrono::Duration::seconds(interval_seconds))
 }
 
 pub async fn run_scheduled_restores(state: &State) -> Result<(), anyhow::Error> {
