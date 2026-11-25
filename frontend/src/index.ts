@@ -1,15 +1,13 @@
 import { faFlask } from '@fortawesome/free-solid-svg-icons';
-import React from 'react';
-import { Extension, ExtensionContext, type IconLike } from 'shared';
+import { Extension, ExtensionContext } from 'shared';
 import LoginDemoAlert from './components/LoginDemoAlert.tsx';
 import ConfigurationPage from './pages/ConfigurationPage.tsx';
 import DemoConfigurationCreateOrUpdate from './pages/DemoConfigurationCreateOrUpdate.tsx';
 import DemoConfigurationView from './pages/DemoConfigurationView.tsx';
 
 class DemoConfigurationsExtension extends Extension {
-  public cardConfigurationPage: React.FC | null = ConfigurationPage;
-  public cardComponent: React.FC | null = null;
-  public cardIcon: IconLike | null = faFlask;
+  public cardConfigurationPage = ConfigurationPage;
+  public cardIcon = faFlask;
 
   public initialize(ctx: ExtensionContext): void {
     ctx.extensionRegistry.enterRoutes((routes) => {
