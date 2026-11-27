@@ -41,7 +41,7 @@ struct DbRow {
     )
 )]
 pub async fn route(state: GetState, permissions: GetPermissionManager) -> ApiResponseResult {
-    permissions.has_admin_permission("extensions.configure")?;
+    permissions.has_admin_permission("settings.read")?;
 
     let rows = sqlx::query_as::<_, DbRow>(
         "SELECT uuid, name, bytes, created

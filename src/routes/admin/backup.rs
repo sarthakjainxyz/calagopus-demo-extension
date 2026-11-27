@@ -31,7 +31,7 @@ pub mod take {
         activity_logger: GetAdminActivityLogger,
         demo_configuration: GetDemoConfiguration,
     ) -> ApiResponseResult {
-        permissions.has_admin_permission("extensions.configure")?;
+        permissions.has_admin_permission("settings.read")?;
 
         let backup_uuid = crate::backups::take_backup(
             &state,
@@ -116,7 +116,7 @@ pub mod link {
         demo_configuration: GetDemoConfiguration,
         shared::Payload(data): shared::Payload<Payload>,
     ) -> ApiResponseResult {
-        permissions.has_admin_permission("extensions.configure")?;
+        permissions.has_admin_permission("settings.read")?;
 
         let backup = match ServerBackup::by_uuid(&state.database, data.backup_uuid).await {
             Ok(b) => b,
@@ -203,7 +203,7 @@ pub mod restore {
         activity_logger: GetAdminActivityLogger,
         demo_configuration: GetDemoConfiguration,
     ) -> ApiResponseResult {
-        permissions.has_admin_permission("extensions.configure")?;
+        permissions.has_admin_permission("settings.read")?;
 
         if !demo_configuration.backup_detached {
             return ApiResponse::error("backup is still being prepared, try again shortly")
@@ -302,7 +302,7 @@ pub mod clear {
         activity_logger: GetAdminActivityLogger,
         demo_configuration: GetDemoConfiguration,
     ) -> ApiResponseResult {
-        permissions.has_admin_permission("extensions.configure")?;
+        permissions.has_admin_permission("settings.read")?;
 
         let updated = crate::models::DemoConfiguration::clear_backup(
             &state.database,

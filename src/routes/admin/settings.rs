@@ -79,7 +79,7 @@ mod put {
                 .ok();
         }
 
-        permissions.has_admin_permission("extensions.configure")?;
+        permissions.has_admin_permission("settings.read")?;
 
         let mut settings = state.settings.get_mut().await?;
         let extension_settings =

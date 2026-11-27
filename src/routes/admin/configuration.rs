@@ -26,7 +26,7 @@ pub async fn auth(
         }
     };
 
-    if let Err(err) = permissions.has_admin_permission("extensions.configure") {
+    if let Err(err) = permissions.has_admin_permission("settings.read") {
         return Ok(err.into_response());
     }
 
@@ -79,7 +79,7 @@ pub mod get {
         permissions: GetPermissionManager,
         demo_configuration: GetDemoConfiguration,
     ) -> ApiResponseResult {
-        permissions.has_admin_permission("extensions.configure")?;
+        permissions.has_admin_permission("settings.read")?;
 
         ApiResponse::new_serialized(Response {
             demo_configuration: crate::models::DemoConfigurationResponse::from_model(
@@ -142,7 +142,7 @@ pub mod patch {
         demo_configuration: GetDemoConfiguration,
         shared::Payload(data): shared::Payload<Payload>,
     ) -> ApiResponseResult {
-        permissions.has_admin_permission("extensions.configure")?;
+        permissions.has_admin_permission("settings.read")?;
 
         let permissions_provided = data.permissions.is_some();
 
@@ -217,7 +217,7 @@ pub mod delete {
         activity_logger: GetAdminActivityLogger,
         demo_configuration: GetDemoConfiguration,
     ) -> ApiResponseResult {
-        permissions.has_admin_permission("extensions.configure")?;
+        permissions.has_admin_permission("settings.read")?;
 
         crate::models::DemoConfiguration::delete(&state.database, demo_configuration.uuid).await?;
         crate::subusers::remove_all(&state.database, demo_configuration.server_uuid).await?;
@@ -286,7 +286,7 @@ pub mod duplicate {
         demo_configuration: GetDemoConfiguration,
         shared::Payload(data): shared::Payload<Payload>,
     ) -> ApiResponseResult {
-        permissions.has_admin_permission("extensions.configure")?;
+        permissions.has_admin_permission("settings.read")?;
 
         let name = data
             .name

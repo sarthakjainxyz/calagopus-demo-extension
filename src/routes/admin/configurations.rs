@@ -52,7 +52,7 @@ pub mod get {
                 .ok();
         }
 
-        permissions.has_admin_permission("extensions.configure")?;
+        permissions.has_admin_permission("settings.read")?;
 
         let _ = crate::models::DemoConfiguration::clean_deleted_backups(&state.database).await;
 
@@ -131,7 +131,7 @@ pub mod post {
         activity_logger: GetAdminActivityLogger,
         shared::Payload(data): shared::Payload<Payload>,
     ) -> ApiResponseResult {
-        permissions.has_admin_permission("extensions.configure")?;
+        permissions.has_admin_permission("settings.read")?;
 
         let demo_configuration = match crate::models::DemoConfiguration::create(
             &state.database,
